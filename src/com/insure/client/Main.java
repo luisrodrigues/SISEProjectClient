@@ -23,11 +23,12 @@ public class Main {
 
             // Client code
             String userId = JOptionPane.showInputDialog("Insert username: ");
+            //auxiliary variables
+            int claimId;
+            int documentId;
 
         label:
         while (true) {
-            int claimId;
-            int documentId;
             String expression = JOptionPane.showInputDialog("Insert expression (create/update claim) or (list documents or create/read/update/delete document)");
 
             try {
@@ -104,7 +105,7 @@ public class Main {
         }
 
     }
-
+        //utility method
         public static void printElements(String[] arr) {
             for (String el : arr) {
                 System.out.println(el);
