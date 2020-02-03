@@ -26,10 +26,7 @@ public class AsymEncryptPriv {
         return kf.generatePrivate(spec);
     }
 
-    public String encryptText(String msg, Key key)
-            throws NoSuchAlgorithmException, NoSuchPaddingException,
-            UnsupportedEncodingException, IllegalBlockSizeException,
-            BadPaddingException, InvalidKeyException {
+    public String encryptText(String msg, Key key) throws UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         this.cipher.init(Cipher.ENCRYPT_MODE, key);
         return Base64.getEncoder().encodeToString(cipher.doFinal(msg.getBytes("UTF-8")));
     }
