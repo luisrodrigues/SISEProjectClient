@@ -24,21 +24,25 @@ public class Main {
             // Client code
             String userId = JOptionPane.showInputDialog("Insert username: ");
 
-            while (true) {
-                int claimId;
-                int documentId;
-                String expression = JOptionPane.showInputDialog("Insert expression (create/update claim) or (list documents or create/read/update/delete document)");
-                try {
-                    if (expression.equals("exit")) {
-                        break;
-                    } else if (expression.equals("create claim")) {
+        label:
+        while (true) {
+            int claimId;
+            int documentId;
+            String expression = JOptionPane.showInputDialog("Insert expression (create/update claim) or (list documents or create/read/update/delete document)");
+
+            try {
+                switch (expression) {
+                    case "exit":
+                        break label;
+                    case "create claim":
 
                         String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
 
                         claimId = docStorage.createClaim(claimDescription, userId);
                         JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
 
-                    } else if (expression.equals("update claim")) {
+                        break;
+                    case "update claim":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
                         String newClaimDescription = JOptionPane.showInputDialog("Insert new claim description: ");
@@ -46,14 +50,16 @@ public class Main {
                         docStorage.updateClaim(claimId, newClaimDescription);
                         JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
 
-                    } else if (expression.equals("list documents")) {
+                        break;
+                    case "list documents":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
 
                         printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
                         JOptionPane.showMessageDialog(null, "Output in the command line");
 
-                    } else if (expression.equals("create document")) {
+                        break;
+                    case "create document":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
                         String documentContent = JOptionPane.showInputDialog("Insert document content: ");
@@ -63,13 +69,15 @@ public class Main {
                         docStorage.signDocumentOfClaim(claimId, documentId, digitalSignature);
                         JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
 
-                    } else if (expression.equals("read document")) {
+                        break;
+                    case "read document":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
                         documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
                         JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
 
-                    } else if (expression.equals("update document")) {
+                        break;
+                    case "update document":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
                         documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
@@ -78,7 +86,8 @@ public class Main {
                         docStorage.updateDocumentOfClaim(claimId, documentId, newDocumentContent, userId);
                         JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
 
-                    } else if (expression.equals("delete document")) {
+                        break;
+                    case "delete document":
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
                         documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
 
@@ -86,15 +95,15 @@ public class Main {
                         printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
                         JOptionPane.showMessageDialog(null, "Output in the command line");
 
-                    }
-
-                } catch (Exception e) {
-                    e.getMessage();
+                        break;
                 }
+
+            } catch (Exception e) {
+                e.getMessage();
             }
-
-
         }
+
+    }
 
         public static void printElements(String[] arr) {
             for (String el : arr) {
