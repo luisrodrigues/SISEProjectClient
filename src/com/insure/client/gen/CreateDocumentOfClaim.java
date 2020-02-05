@@ -17,9 +17,10 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,14 +34,16 @@ import javax.xml.bind.annotation.XmlType;
     "arg0",
     "arg1",
     "arg2",
-    "arg3"
+    "arg3",
+    "arg4"
 })
 public class CreateDocumentOfClaim {
 
     protected int arg0;
-    protected String arg1;
+    protected int arg1;
     protected String arg2;
     protected String arg3;
+    protected String arg4;
 
     /**
      * Gets the value of the arg0 property.
@@ -61,24 +64,16 @@ public class CreateDocumentOfClaim {
     /**
      * Gets the value of the arg1 property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg1() {
+    public int getArg1() {
         return arg1;
     }
 
     /**
      * Sets the value of the arg1 property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg1(String value) {
+    public void setArg1(int value) {
         this.arg1 = value;
     }
 
@@ -128,6 +123,30 @@ public class CreateDocumentOfClaim {
      */
     public void setArg3(String value) {
         this.arg3 = value;
+    }
+
+    /**
+     * Gets the value of the arg4 property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArg4() {
+        return arg4;
+    }
+
+    /**
+     * Sets the value of the arg4 property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArg4(String value) {
+        this.arg4 = value;
     }
 
 }

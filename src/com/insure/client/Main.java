@@ -32,9 +32,9 @@ public class Main {
             ClaimDataStore docStorage = dss.getClaimDataStorePort();
             ((BindingProvider) docStorage).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);
 
-            // Client code
+            // [Client code]
             String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
-            //client action variables
+            //client action options
             String[] options = {"create claim", "create document", "read document", "list documents",
                     "simulate document tampering", "exit"};
             // main state variable
@@ -85,13 +85,14 @@ public class Main {
     private static void simulateDocumentTamperingClient(Signature signature, ClaimDataStore docStorage, String userId) {
 
         int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        int documentType = Integer.parseInt(JOptionPane.showInputDialog("Insert the document type number (1 - Expert " +
+                "Report, 2 - Police Report, 3 - Medical Report): "));
         String documentContent = JOptionPane.showInputDialog("Insert document content: ");
-
 
         try {
             String digitalSignature = signature.generate(documentContent, "keys/" + userId +
                     "PrivateKey");
-            int documentId = docStorage.createDocumentOfClaim(claimId, documentContent +
+            int documentId = docStorage.createDocumentOfClaim(claimId, documentType, documentContent +
                     "this has been tampered", userId, digitalSignature);
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                     documentId));
@@ -107,11 +108,16 @@ public class Main {
     }
 
     private static void listDocumentsClient(ClaimDataStore docStorage) {
+
         int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
 
-
         try {
-            JOptionPane.showMessageDialog(null, String.join("\n", docStorage.listDocumentsOfClaim(claimId).toArray(new String[0])));
+            String listString = String.join("\n", docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
+            if (listString.equals("")) {
+                JOptionPane.showMessageDialog(null, "Claim " + claimId + " has no documents!");
+            } else {
+                JOptionPane.showMessageDialog(null, listString);
+            }
         } catch (BadPaddingException_Exception | ClaimNotFoundException_Exception | IOException_Exception
                 | IllegalBlockSizeException_Exception | InvalidKeyException_Exception
                 | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
@@ -140,14 +146,15 @@ public class Main {
 
     private static void createDocumentClient(Signature signature, ClaimDataStore docStorage, String userId) {
         int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        int documentType = Integer.parseInt(JOptionPane.showInputDialog("Insert the document type number (1 - Expert " +
+                "Report, 2 - Police Report, 3 - Medical Report): "));
         String documentContent = JOptionPane.showInputDialog("Insert document content: ");
-
 
         try {
             String digitalSignature = signature.generate(documentContent, "keys/" +
                         userId + "PrivateKey");
 
-            int documentId = docStorage.createDocumentOfClaim(claimId, documentContent, userId,
+            int documentId = docStorage.createDocumentOfClaim(claimId, documentType, documentContent, userId,
                             digitalSignature);
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                         documentId));
@@ -172,6 +179,7 @@ public class Main {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
+
 }
 
 
