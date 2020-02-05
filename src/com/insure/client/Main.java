@@ -55,9 +55,8 @@ public class Main {
                     case "read document":
 
                         readDocumentClient(docStorage);
-
-
                         break;
+
                     case "list documents":
 
                         listDocumentsClient(docStorage);
