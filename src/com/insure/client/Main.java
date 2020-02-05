@@ -99,7 +99,7 @@ public class Main {
                 | IOException_Exception | IllegalBlockSizeException_Exception | InvalidKeyException_Exception
                 | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
                 | NoSuchAlgorithmException_Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
@@ -109,13 +109,12 @@ public class Main {
 
 
         try {
-            printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
-            JOptionPane.showMessageDialog(null, "Output in the terminal");
+            JOptionPane.showMessageDialog(null, String.join("\n", docStorage.listDocumentsOfClaim(claimId).toArray(new String[0])));
         } catch (BadPaddingException_Exception | ClaimNotFoundException_Exception | IOException_Exception
                 | IllegalBlockSizeException_Exception | InvalidKeyException_Exception
                 | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
                 | NoSuchAlgorithmException_Exception | HeadlessException e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
@@ -132,7 +131,7 @@ public class Main {
                 | DocumentNotFoundException_Exception | IOException_Exception | IllegalBlockSizeException_Exception
                 | InvalidKeyException_Exception | InvalidKeySpecException_Exception
                 | InvalidSignatureException_Exception | NoSuchAlgorithmException_Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
@@ -156,7 +155,7 @@ public class Main {
                 | InvalidKeyException_Exception | InvalidKeySpecException_Exception
                 | InvalidSignatureException_Exception | NoSuchAlgorithmException_Exception
                 | DocumentNotFoundException_Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
@@ -168,16 +167,9 @@ public class Main {
         try {
             JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
         } catch (ClaimNotFoundException_Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-
-    //utility method
-        public static void printElements(String[] arr) {
-            for (String el : arr) {
-                System.out.println(el);
-            }
-        }
 }
 
 
