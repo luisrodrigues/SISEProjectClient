@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "DocumentNotFoundException", targetNamespace = "http://server.insure.com/")
-public class DocumentNotFoundException_Exception
+@WebFault(name = "BadPaddingException", targetNamespace = "http://server.insure.com/")
+public class BadPaddingException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class DocumentNotFoundException_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private DocumentNotFoundException faultInfo;
+    private BadPaddingException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo) {
+    public BadPaddingException_Exception(String message, BadPaddingException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class DocumentNotFoundException_Exception
      * @param cause
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo, Throwable cause) {
+    public BadPaddingException_Exception(String message, BadPaddingException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class DocumentNotFoundException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.insure.client.gen.DocumentNotFoundException
+     *     returns fault bean: com.insure.client.gen.BadPaddingException
      */
-    public DocumentNotFoundException getFaultInfo() {
+    public BadPaddingException getFaultInfo() {
         return faultInfo;
     }
 

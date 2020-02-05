@@ -1,10 +1,15 @@
 package cryptography;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 
 public class Signature {
@@ -18,7 +23,7 @@ public class Signature {
     }
 
     //generate signature
-    public String generate(String message, String privateKeyFilename) throws Exception {
+    public String generate(String message, String privateKeyFilename) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, BadPaddingException, InvalidKeyException, IllegalBlockSizeException {
         PrivateKey privateKey = this.asymEncryptPriv.getPrivate(privateKeyFilename);
         String hash = buildHash(message);
         return this.asymEncryptPriv.encryptText(hash, privateKey);

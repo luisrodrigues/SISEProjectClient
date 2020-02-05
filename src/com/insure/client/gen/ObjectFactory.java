@@ -24,8 +24,15 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _BadPaddingException_QNAME = new QName("http://server.insure.com/", "BadPaddingException");
     private final static QName _ClaimNotFoundException_QNAME = new QName("http://server.insure.com/", "ClaimNotFoundException");
-    private final static QName _Exception_QNAME = new QName("http://server.insure.com/", "Exception");
+    private final static QName _DocumentNotFoundException_QNAME = new QName("http://server.insure.com/", "DocumentNotFoundException");
+    private final static QName _IOException_QNAME = new QName("http://server.insure.com/", "IOException");
+    private final static QName _IllegalBlockSizeException_QNAME = new QName("http://server.insure.com/", "IllegalBlockSizeException");
+    private final static QName _InvalidKeyException_QNAME = new QName("http://server.insure.com/", "InvalidKeyException");
+    private final static QName _InvalidKeySpecException_QNAME = new QName("http://server.insure.com/", "InvalidKeySpecException");
+    private final static QName _InvalidSignatureException_QNAME = new QName("http://server.insure.com/", "InvalidSignatureException");
+    private final static QName _NoSuchAlgorithmException_QNAME = new QName("http://server.insure.com/", "NoSuchAlgorithmException");
     private final static QName _CreateClaim_QNAME = new QName("http://server.insure.com/", "createClaim");
     private final static QName _CreateClaimResponse_QNAME = new QName("http://server.insure.com/", "createClaimResponse");
     private final static QName _CreateDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "createDocumentOfClaim");
@@ -49,6 +56,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BadPaddingException }
+     * 
+     */
+    public BadPaddingException createBadPaddingException() {
+        return new BadPaddingException();
+    }
+
+    /**
      * Create an instance of {@link ClaimNotFoundException }
      * 
      */
@@ -57,11 +72,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Exception }
+     * Create an instance of {@link DocumentNotFoundException }
      * 
      */
-    public Exception createException() {
-        return new Exception();
+    public DocumentNotFoundException createDocumentNotFoundException() {
+        return new DocumentNotFoundException();
+    }
+
+    /**
+     * Create an instance of {@link IOException }
+     * 
+     */
+    public IOException createIOException() {
+        return new IOException();
+    }
+
+    /**
+     * Create an instance of {@link IllegalBlockSizeException }
+     * 
+     */
+    public IllegalBlockSizeException createIllegalBlockSizeException() {
+        return new IllegalBlockSizeException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidKeyException }
+     * 
+     */
+    public InvalidKeyException createInvalidKeyException() {
+        return new InvalidKeyException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidKeySpecException }
+     * 
+     */
+    public InvalidKeySpecException createInvalidKeySpecException() {
+        return new InvalidKeySpecException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidSignatureException }
+     * 
+     */
+    public InvalidSignatureException createInvalidSignatureException() {
+        return new InvalidSignatureException();
+    }
+
+    /**
+     * Create an instance of {@link NoSuchAlgorithmException }
+     * 
+     */
+    public NoSuchAlgorithmException createNoSuchAlgorithmException() {
+        return new NoSuchAlgorithmException();
     }
 
     /**
@@ -185,6 +248,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BadPaddingException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BadPaddingException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "BadPaddingException")
+    public JAXBElement<BadPaddingException> createBadPaddingException(BadPaddingException value) {
+        return new JAXBElement<BadPaddingException>(_BadPaddingException_QNAME, BadPaddingException.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ClaimNotFoundException }{@code >}
      * 
      * @param value
@@ -198,16 +274,94 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DocumentNotFoundException }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link DocumentNotFoundException }{@code >}
      */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "Exception")
-    public JAXBElement<Exception> createException(Exception value) {
-        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "DocumentNotFoundException")
+    public JAXBElement<DocumentNotFoundException> createDocumentNotFoundException(DocumentNotFoundException value) {
+        return new JAXBElement<DocumentNotFoundException>(_DocumentNotFoundException_QNAME, DocumentNotFoundException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "IOException")
+    public JAXBElement<IOException> createIOException(IOException value) {
+        return new JAXBElement<IOException>(_IOException_QNAME, IOException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IllegalBlockSizeException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IllegalBlockSizeException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "IllegalBlockSizeException")
+    public JAXBElement<IllegalBlockSizeException> createIllegalBlockSizeException(IllegalBlockSizeException value) {
+        return new JAXBElement<IllegalBlockSizeException>(_IllegalBlockSizeException_QNAME, IllegalBlockSizeException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidKeyException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidKeyException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidKeyException")
+    public JAXBElement<InvalidKeyException> createInvalidKeyException(InvalidKeyException value) {
+        return new JAXBElement<InvalidKeyException>(_InvalidKeyException_QNAME, InvalidKeyException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidKeySpecException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidKeySpecException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidKeySpecException")
+    public JAXBElement<InvalidKeySpecException> createInvalidKeySpecException(InvalidKeySpecException value) {
+        return new JAXBElement<InvalidKeySpecException>(_InvalidKeySpecException_QNAME, InvalidKeySpecException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidSignatureException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidSignatureException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidSignatureException")
+    public JAXBElement<InvalidSignatureException> createInvalidSignatureException(InvalidSignatureException value) {
+        return new JAXBElement<InvalidSignatureException>(_InvalidSignatureException_QNAME, InvalidSignatureException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NoSuchAlgorithmException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link NoSuchAlgorithmException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "NoSuchAlgorithmException")
+    public JAXBElement<NoSuchAlgorithmException> createNoSuchAlgorithmException(NoSuchAlgorithmException value) {
+        return new JAXBElement<NoSuchAlgorithmException>(_NoSuchAlgorithmException_QNAME, NoSuchAlgorithmException.class, null, value);
     }
 
     /**

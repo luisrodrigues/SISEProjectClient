@@ -3,9 +3,16 @@ package com.insure.client;
 import com.insure.client.gen.*;
 import cryptography.Signature;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.xml.ws.BindingProvider;
-import java.lang.Exception;
+import java.awt.*;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 //Wsimport.bat -s ..\src -keep -p com.insure.client.gen "http://localhost:8090/claimservice?wsdl"
 
@@ -13,7 +20,8 @@ public class Main {
     public static final String INSERT_CLAIM_ID = "Insert claim id: ";
     public static final String INSERT_DOCUMENT_ID = "Insert document id: ";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException {
+
             Signature signature = new Signature();
             String url = "http://localhost:8090/claimservice";
             ClaimDataStoreService dss = new ClaimDataStoreService();
@@ -23,79 +31,148 @@ public class Main {
 
             // Client code
             String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
-            //auxiliary variables
+            //client action variables
             String[] options = {"create claim", "create document", "read document", "list documents",
                     "simulate document tampering", "exit"};
-            int claimId;
-            int documentId;
+            // main state variable
+            boolean isRunning = true;
 
-        clientLoop:
-        while (true) {
+        while (isRunning) {
             String expression = (String)JOptionPane.showInputDialog(null, "Insert your action:",
                     "You are " + userId, JOptionPane.QUESTION_MESSAGE, null, options, options[5]);
 
-            try {
                 switch (expression) {
                     case "create claim":
 
-                        String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
-
-                        claimId = docStorage.createClaim(claimDescription, userId);
-                        JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
-
+                        createClaimClient(docStorage, userId);
                         break;
+
                     case "create document":
 
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
-
-                        String digitalSignature = signature.generate(documentContent, "keys/" +
-                                userId + "PrivateKey");
-                        documentId = docStorage.createDocumentOfClaim(claimId, documentContent, userId,
-                                digitalSignature);
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
-                                documentId));
-
+                        createDocumentClient(signature, docStorage, userId);
                         break;
+
                     case "read document":
 
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
-                                documentId));
+                        readDocumentClient(docStorage);
+
 
                         break;
                     case "list documents":
 
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-
-                        printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
-                        JOptionPane.showMessageDialog(null, "Output in the terminal");
-
+                        listDocumentsClient(docStorage);
                         break;
+
                     case "simulate document tampering":
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        documentContent = JOptionPane.showInputDialog("Insert document content: ");
 
-                        digitalSignature = signature.generate(documentContent, "keys/" + userId +
-                                "PrivateKey");
-                        documentId = docStorage.createDocumentOfClaim(claimId, documentContent +
-                                "this has been tampered", userId, digitalSignature);
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
-                                documentId));
-
+                        simulateDocumentTamperingClient(signature, docStorage, userId);
                         break;
-                    case "exit":
-                        break clientLoop;
-                }
 
-            } catch (Exception e) {
-                e.getMessage();
-            }
+                    case "exit":
+
+                        isRunning = false;
+                        break;
+
+                    default:
+                        break;
+                }
         }
 
     }
-        //utility method
+
+    private static void simulateDocumentTamperingClient(Signature signature, ClaimDataStore docStorage, String userId) {
+
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
+
+
+        try {
+            String digitalSignature = signature.generate(documentContent, "keys/" + userId +
+                    "PrivateKey");
+            int documentId = docStorage.createDocumentOfClaim(claimId, documentContent +
+                    "this has been tampered", userId, digitalSignature);
+            JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                    documentId));
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException | HeadlessException |
+                DocumentNotFoundException_Exception | IOException | BadPaddingException | InvalidKeyException
+                | IllegalBlockSizeException | BadPaddingException_Exception | ClaimNotFoundException_Exception
+                | IOException_Exception | IllegalBlockSizeException_Exception | InvalidKeyException_Exception
+                | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
+                | NoSuchAlgorithmException_Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private static void listDocumentsClient(ClaimDataStore docStorage) {
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+
+
+        try {
+            printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
+            JOptionPane.showMessageDialog(null, "Output in the terminal");
+        } catch (BadPaddingException_Exception | ClaimNotFoundException_Exception | IOException_Exception
+                | IllegalBlockSizeException_Exception | InvalidKeyException_Exception
+                | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
+                | NoSuchAlgorithmException_Exception | HeadlessException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private static void readDocumentClient(ClaimDataStore docStorage) {
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
+
+
+        try {
+            JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                    documentId));
+        } catch (BadPaddingException_Exception | ClaimNotFoundException_Exception
+                | DocumentNotFoundException_Exception | IOException_Exception | IllegalBlockSizeException_Exception
+                | InvalidKeyException_Exception | InvalidKeySpecException_Exception
+                | InvalidSignatureException_Exception | NoSuchAlgorithmException_Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private static void createDocumentClient(Signature signature, ClaimDataStore docStorage, String userId) {
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
+
+
+        try {
+            String digitalSignature = signature.generate(documentContent, "keys/" +
+                        userId + "PrivateKey");
+
+            int documentId = docStorage.createDocumentOfClaim(claimId, documentContent, userId,
+                            digitalSignature);
+            JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                        documentId));
+        } catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
+                | InvalidKeyException | IllegalBlockSizeException | BadPaddingException_Exception
+                | ClaimNotFoundException_Exception | IOException_Exception | IllegalBlockSizeException_Exception
+                | InvalidKeyException_Exception | InvalidKeySpecException_Exception
+                | InvalidSignatureException_Exception | NoSuchAlgorithmException_Exception
+                | DocumentNotFoundException_Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private static void createClaimClient(ClaimDataStore docStorage, String userId) {
+        String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
+        int claimId = docStorage.createClaim(claimDescription, userId);
+
+        try {
+            JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
+        } catch (ClaimNotFoundException_Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //utility method
         public static void printElements(String[] arr) {
             for (String el : arr) {
                 System.out.println(el);

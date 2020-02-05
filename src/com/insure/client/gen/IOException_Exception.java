@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "DocumentNotFoundException", targetNamespace = "http://server.insure.com/")
-public class DocumentNotFoundException_Exception
+@WebFault(name = "IOException", targetNamespace = "http://server.insure.com/")
+public class IOException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class DocumentNotFoundException_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private DocumentNotFoundException faultInfo;
+    private IOException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo) {
+    public IOException_Exception(String message, IOException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class DocumentNotFoundException_Exception
      * @param cause
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo, Throwable cause) {
+    public IOException_Exception(String message, IOException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class DocumentNotFoundException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.insure.client.gen.DocumentNotFoundException
+     *     returns fault bean: com.insure.client.gen.IOException
      */
-    public DocumentNotFoundException getFaultInfo() {
+    public IOException getFaultInfo() {
         return faultInfo;
     }
 

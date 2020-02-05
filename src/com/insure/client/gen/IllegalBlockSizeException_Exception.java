@@ -10,23 +10,23 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "Exception", targetNamespace = "http://server.insure.com/")
-public class Exception_Exception
-    extends java.lang.Exception
+@WebFault(name = "IllegalBlockSizeException", targetNamespace = "http://server.insure.com/")
+public class IllegalBlockSizeException_Exception
+    extends Exception
 {
 
     /**
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private com.insure.client.gen.Exception faultInfo;
+    private IllegalBlockSizeException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public Exception_Exception(String message, com.insure.client.gen.Exception faultInfo) {
+    public IllegalBlockSizeException_Exception(String message, IllegalBlockSizeException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class Exception_Exception
      * @param cause
      * @param message
      */
-    public Exception_Exception(String message, com.insure.client.gen.Exception faultInfo, Throwable cause) {
+    public IllegalBlockSizeException_Exception(String message, IllegalBlockSizeException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class Exception_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.insure.client.gen.Exception
+     *     returns fault bean: com.insure.client.gen.IllegalBlockSizeException
      */
-    public com.insure.client.gen.Exception getFaultInfo() {
+    public IllegalBlockSizeException getFaultInfo() {
         return faultInfo;
     }
 

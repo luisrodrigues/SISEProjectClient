@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "DocumentNotFoundException", targetNamespace = "http://server.insure.com/")
-public class DocumentNotFoundException_Exception
+@WebFault(name = "InvalidSignatureException", targetNamespace = "http://server.insure.com/")
+public class InvalidSignatureException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class DocumentNotFoundException_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private DocumentNotFoundException faultInfo;
+    private InvalidSignatureException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo) {
+    public InvalidSignatureException_Exception(String message, InvalidSignatureException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class DocumentNotFoundException_Exception
      * @param cause
      * @param message
      */
-    public DocumentNotFoundException_Exception(String message, DocumentNotFoundException faultInfo, Throwable cause) {
+    public InvalidSignatureException_Exception(String message, InvalidSignatureException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class DocumentNotFoundException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: com.insure.client.gen.DocumentNotFoundException
+     *     returns fault bean: com.insure.client.gen.InvalidSignatureException
      */
-    public DocumentNotFoundException getFaultInfo() {
+    public InvalidSignatureException getFaultInfo() {
         return faultInfo;
     }
 

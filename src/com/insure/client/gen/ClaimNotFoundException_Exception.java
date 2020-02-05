@@ -12,7 +12,7 @@ import javax.xml.ws.WebFault;
  */
 @WebFault(name = "ClaimNotFoundException", targetNamespace = "http://server.insure.com/")
 public class ClaimNotFoundException_Exception
-    extends java.lang.Exception
+    extends Exception
 {
 
     /**
