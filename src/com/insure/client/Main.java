@@ -22,19 +22,20 @@ public class Main {
             ((BindingProvider) docStorage).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);
 
             // Client code
-            String userId = JOptionPane.showInputDialog("Insert username: ");
+            String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
             //auxiliary variables
+            String[] options = {"create claim", "create document", "read document", "list documents",
+                    "simulate document tampering", "exit"};
             int claimId;
             int documentId;
 
-        label:
+        clientLoop:
         while (true) {
-            String expression = JOptionPane.showInputDialog("Insert expression (create/update claim) or (list documents or create/read/update/delete document)");
+            String expression = (String)JOptionPane.showInputDialog(null, "Insert your action:",
+                    "You are " + userId, JOptionPane.QUESTION_MESSAGE, null, options, options[5]);
 
             try {
                 switch (expression) {
-                    case "exit":
-                        break label;
                     case "create claim":
 
                         String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
@@ -43,13 +44,25 @@ public class Main {
                         JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
 
                         break;
-                    case "update claim":
+                    case "create document":
 
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        String newClaimDescription = JOptionPane.showInputDialog("Insert new claim description: ");
+                        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
 
-                        docStorage.updateClaim(claimId, newClaimDescription);
-                        JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
+                        String digitalSignature = signature.generate(documentContent, "keys/" +
+                                userId + "PrivateKey");
+                        documentId = docStorage.createDocumentOfClaim(claimId, documentContent, userId,
+                                digitalSignature);
+                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                                documentId));
+
+                        break;
+                    case "read document":
+
+                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+                        documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
+                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                                documentId));
 
                         break;
                     case "list documents":
@@ -57,46 +70,23 @@ public class Main {
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
 
                         printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
-                        JOptionPane.showMessageDialog(null, "Output in the command line");
+                        JOptionPane.showMessageDialog(null, "Output in the terminal");
 
                         break;
-                    case "create document":
-
+                    case "simulate document tampering":
                         claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
+                        documentContent = JOptionPane.showInputDialog("Insert document content: ");
 
-                        documentId = docStorage.createDocumentOfClaim(claimId, documentContent, userId);
-                        String digitalSignature = signature.generate(docStorage.readDocumentOfClaim(claimId, documentId), "keys/" + userId + "PrivateKey");
-                        docStorage.signDocumentOfClaim(claimId, documentId, digitalSignature);
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
-
-                        break;
-                    case "read document":
-
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
+                        digitalSignature = signature.generate(documentContent, "keys/" + userId +
+                                "PrivateKey");
+                        documentId = docStorage.createDocumentOfClaim(claimId, documentContent +
+                                "this has been tampered", userId, digitalSignature);
+                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
+                                documentId));
 
                         break;
-                    case "update document":
-
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
-                        String newDocumentContent = JOptionPane.showInputDialog("Insert new document content: ");
-
-                        docStorage.updateDocumentOfClaim(claimId, documentId, newDocumentContent, userId);
-                        JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId, documentId));
-
-                        break;
-                    case "delete document":
-                        claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-                        documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
-
-                        docStorage.deleteDocumentOfClaim(claimId, documentId, userId);
-                        printElements(docStorage.listDocumentsOfClaim(claimId).toArray(new String[0]));
-                        JOptionPane.showMessageDialog(null, "Output in the command line");
-
-                        break;
+                    case "exit":
+                        break clientLoop;
                 }
 
             } catch (Exception e) {

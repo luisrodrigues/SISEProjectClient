@@ -25,14 +25,11 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ClaimNotFoundException_QNAME = new QName("http://server.insure.com/", "ClaimNotFoundException");
-    private final static QName _DocumentNotFoundException_QNAME = new QName("http://server.insure.com/", "DocumentNotFoundException");
     private final static QName _Exception_QNAME = new QName("http://server.insure.com/", "Exception");
     private final static QName _CreateClaim_QNAME = new QName("http://server.insure.com/", "createClaim");
     private final static QName _CreateClaimResponse_QNAME = new QName("http://server.insure.com/", "createClaimResponse");
     private final static QName _CreateDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "createDocumentOfClaim");
     private final static QName _CreateDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "createDocumentOfClaimResponse");
-    private final static QName _DeleteDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "deleteDocumentOfClaim");
-    private final static QName _DeleteDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "deleteDocumentOfClaimResponse");
     private final static QName _ListDocumentsOfClaim_QNAME = new QName("http://server.insure.com/", "listDocumentsOfClaim");
     private final static QName _ListDocumentsOfClaimResponse_QNAME = new QName("http://server.insure.com/", "listDocumentsOfClaimResponse");
     private final static QName _PrintClaim_QNAME = new QName("http://server.insure.com/", "printClaim");
@@ -41,14 +38,8 @@ public class ObjectFactory {
     private final static QName _ReadDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentOfClaimResponse");
     private final static QName _RetrieveClaim_QNAME = new QName("http://server.insure.com/", "retrieveClaim");
     private final static QName _RetrieveClaimResponse_QNAME = new QName("http://server.insure.com/", "retrieveClaimResponse");
-    private final static QName _SignDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "signDocumentOfClaim");
-    private final static QName _SignDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "signDocumentOfClaimResponse");
     private final static QName _StoreClaim_QNAME = new QName("http://server.insure.com/", "storeClaim");
     private final static QName _StoreClaimResponse_QNAME = new QName("http://server.insure.com/", "storeClaimResponse");
-    private final static QName _UpdateClaim_QNAME = new QName("http://server.insure.com/", "updateClaim");
-    private final static QName _UpdateClaimResponse_QNAME = new QName("http://server.insure.com/", "updateClaimResponse");
-    private final static QName _UpdateDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "updateDocumentOfClaim");
-    private final static QName _UpdateDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "updateDocumentOfClaimResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.insure.client.gen
@@ -63,14 +54,6 @@ public class ObjectFactory {
      */
     public ClaimNotFoundException createClaimNotFoundException() {
         return new ClaimNotFoundException();
-    }
-
-    /**
-     * Create an instance of {@link DocumentNotFoundException }
-     * 
-     */
-    public DocumentNotFoundException createDocumentNotFoundException() {
-        return new DocumentNotFoundException();
     }
 
     /**
@@ -111,22 +94,6 @@ public class ObjectFactory {
      */
     public CreateDocumentOfClaimResponse createCreateDocumentOfClaimResponse() {
         return new CreateDocumentOfClaimResponse();
-    }
-
-    /**
-     * Create an instance of {@link DeleteDocumentOfClaim }
-     * 
-     */
-    public DeleteDocumentOfClaim createDeleteDocumentOfClaim() {
-        return new DeleteDocumentOfClaim();
-    }
-
-    /**
-     * Create an instance of {@link DeleteDocumentOfClaimResponse }
-     * 
-     */
-    public DeleteDocumentOfClaimResponse createDeleteDocumentOfClaimResponse() {
-        return new DeleteDocumentOfClaimResponse();
     }
 
     /**
@@ -194,22 +161,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SignDocumentOfClaim }
-     * 
-     */
-    public SignDocumentOfClaim createSignDocumentOfClaim() {
-        return new SignDocumentOfClaim();
-    }
-
-    /**
-     * Create an instance of {@link SignDocumentOfClaimResponse }
-     * 
-     */
-    public SignDocumentOfClaimResponse createSignDocumentOfClaimResponse() {
-        return new SignDocumentOfClaimResponse();
-    }
-
-    /**
      * Create an instance of {@link StoreClaim }
      * 
      */
@@ -223,38 +174,6 @@ public class ObjectFactory {
      */
     public StoreClaimResponse createStoreClaimResponse() {
         return new StoreClaimResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateClaim }
-     * 
-     */
-    public UpdateClaim createUpdateClaim() {
-        return new UpdateClaim();
-    }
-
-    /**
-     * Create an instance of {@link UpdateClaimResponse }
-     * 
-     */
-    public UpdateClaimResponse createUpdateClaimResponse() {
-        return new UpdateClaimResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateDocumentOfClaim }
-     * 
-     */
-    public UpdateDocumentOfClaim createUpdateDocumentOfClaim() {
-        return new UpdateDocumentOfClaim();
-    }
-
-    /**
-     * Create an instance of {@link UpdateDocumentOfClaimResponse }
-     * 
-     */
-    public UpdateDocumentOfClaimResponse createUpdateDocumentOfClaimResponse() {
-        return new UpdateDocumentOfClaimResponse();
     }
 
     /**
@@ -276,19 +195,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "ClaimNotFoundException")
     public JAXBElement<ClaimNotFoundException> createClaimNotFoundException(ClaimNotFoundException value) {
         return new JAXBElement<ClaimNotFoundException>(_ClaimNotFoundException_QNAME, ClaimNotFoundException.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DocumentNotFoundException }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DocumentNotFoundException }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "DocumentNotFoundException")
-    public JAXBElement<DocumentNotFoundException> createDocumentNotFoundException(DocumentNotFoundException value) {
-        return new JAXBElement<DocumentNotFoundException>(_DocumentNotFoundException_QNAME, DocumentNotFoundException.class, null, value);
     }
 
     /**
@@ -354,32 +260,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "createDocumentOfClaimResponse")
     public JAXBElement<CreateDocumentOfClaimResponse> createCreateDocumentOfClaimResponse(CreateDocumentOfClaimResponse value) {
         return new JAXBElement<CreateDocumentOfClaimResponse>(_CreateDocumentOfClaimResponse_QNAME, CreateDocumentOfClaimResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaim }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaim }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "deleteDocumentOfClaim")
-    public JAXBElement<DeleteDocumentOfClaim> createDeleteDocumentOfClaim(DeleteDocumentOfClaim value) {
-        return new JAXBElement<DeleteDocumentOfClaim>(_DeleteDocumentOfClaim_QNAME, DeleteDocumentOfClaim.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaimResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaimResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "deleteDocumentOfClaimResponse")
-    public JAXBElement<DeleteDocumentOfClaimResponse> createDeleteDocumentOfClaimResponse(DeleteDocumentOfClaimResponse value) {
-        return new JAXBElement<DeleteDocumentOfClaimResponse>(_DeleteDocumentOfClaimResponse_QNAME, DeleteDocumentOfClaimResponse.class, null, value);
     }
 
     /**
@@ -487,32 +367,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SignDocumentOfClaim }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignDocumentOfClaim }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "signDocumentOfClaim")
-    public JAXBElement<SignDocumentOfClaim> createSignDocumentOfClaim(SignDocumentOfClaim value) {
-        return new JAXBElement<SignDocumentOfClaim>(_SignDocumentOfClaim_QNAME, SignDocumentOfClaim.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SignDocumentOfClaimResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignDocumentOfClaimResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "signDocumentOfClaimResponse")
-    public JAXBElement<SignDocumentOfClaimResponse> createSignDocumentOfClaimResponse(SignDocumentOfClaimResponse value) {
-        return new JAXBElement<SignDocumentOfClaimResponse>(_SignDocumentOfClaimResponse_QNAME, SignDocumentOfClaimResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link StoreClaim }{@code >}
      * 
      * @param value
@@ -536,58 +390,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "storeClaimResponse")
     public JAXBElement<StoreClaimResponse> createStoreClaimResponse(StoreClaimResponse value) {
         return new JAXBElement<StoreClaimResponse>(_StoreClaimResponse_QNAME, StoreClaimResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateClaim }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateClaim }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateClaim")
-    public JAXBElement<UpdateClaim> createUpdateClaim(UpdateClaim value) {
-        return new JAXBElement<UpdateClaim>(_UpdateClaim_QNAME, UpdateClaim.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateClaimResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateClaimResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateClaimResponse")
-    public JAXBElement<UpdateClaimResponse> createUpdateClaimResponse(UpdateClaimResponse value) {
-        return new JAXBElement<UpdateClaimResponse>(_UpdateClaimResponse_QNAME, UpdateClaimResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaim }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaim }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateDocumentOfClaim")
-    public JAXBElement<UpdateDocumentOfClaim> createUpdateDocumentOfClaim(UpdateDocumentOfClaim value) {
-        return new JAXBElement<UpdateDocumentOfClaim>(_UpdateDocumentOfClaim_QNAME, UpdateDocumentOfClaim.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaimResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaimResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateDocumentOfClaimResponse")
-    public JAXBElement<UpdateDocumentOfClaimResponse> createUpdateDocumentOfClaimResponse(UpdateDocumentOfClaimResponse value) {
-        return new JAXBElement<UpdateDocumentOfClaimResponse>(_UpdateDocumentOfClaimResponse_QNAME, UpdateDocumentOfClaimResponse.class, null, value);
     }
 
 }
