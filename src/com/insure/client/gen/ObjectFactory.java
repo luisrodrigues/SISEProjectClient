@@ -33,20 +33,33 @@ public class ObjectFactory {
     private final static QName _InvalidKeySpecException_QNAME = new QName("http://server.insure.com/", "InvalidKeySpecException");
     private final static QName _InvalidSignatureException_QNAME = new QName("http://server.insure.com/", "InvalidSignatureException");
     private final static QName _NoSuchAlgorithmException_QNAME = new QName("http://server.insure.com/", "NoSuchAlgorithmException");
+    private final static QName _NotSameUserException_QNAME = new QName("http://server.insure.com/", "NotSameUserException");
     private final static QName _CreateClaim_QNAME = new QName("http://server.insure.com/", "createClaim");
     private final static QName _CreateClaimResponse_QNAME = new QName("http://server.insure.com/", "createClaimResponse");
     private final static QName _CreateDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "createDocumentOfClaim");
     private final static QName _CreateDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "createDocumentOfClaimResponse");
-    private final static QName _ListDocumentsOfClaim_QNAME = new QName("http://server.insure.com/", "listDocumentsOfClaim");
-    private final static QName _ListDocumentsOfClaimResponse_QNAME = new QName("http://server.insure.com/", "listDocumentsOfClaimResponse");
+    private final static QName _DeleteDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "deleteDocumentOfClaim");
+    private final static QName _DeleteDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "deleteDocumentOfClaimResponse");
+    private final static QName _GetDocumentKeysOfClaim_QNAME = new QName("http://server.insure.com/", "getDocumentKeysOfClaim");
+    private final static QName _GetDocumentKeysOfClaimResponse_QNAME = new QName("http://server.insure.com/", "getDocumentKeysOfClaimResponse");
     private final static QName _PrintClaim_QNAME = new QName("http://server.insure.com/", "printClaim");
     private final static QName _PrintClaimResponse_QNAME = new QName("http://server.insure.com/", "printClaimResponse");
+    private final static QName _ReadDocumentContentOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentContentOfClaim");
+    private final static QName _ReadDocumentContentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentContentOfClaimResponse");
     private final static QName _ReadDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentOfClaim");
     private final static QName _ReadDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentOfClaimResponse");
+    private final static QName _ReadDocumentSignatureOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentSignatureOfClaim");
+    private final static QName _ReadDocumentSignatureOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentSignatureOfClaimResponse");
+    private final static QName _ReadDocumentUserOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentUserOfClaim");
+    private final static QName _ReadDocumentUserOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentUserOfClaimResponse");
     private final static QName _RetrieveClaim_QNAME = new QName("http://server.insure.com/", "retrieveClaim");
     private final static QName _RetrieveClaimResponse_QNAME = new QName("http://server.insure.com/", "retrieveClaimResponse");
     private final static QName _StoreClaim_QNAME = new QName("http://server.insure.com/", "storeClaim");
     private final static QName _StoreClaimResponse_QNAME = new QName("http://server.insure.com/", "storeClaimResponse");
+    private final static QName _UpdateClaim_QNAME = new QName("http://server.insure.com/", "updateClaim");
+    private final static QName _UpdateClaimResponse_QNAME = new QName("http://server.insure.com/", "updateClaimResponse");
+    private final static QName _UpdateDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "updateDocumentOfClaim");
+    private final static QName _UpdateDocumentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "updateDocumentOfClaimResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.insure.client.gen
@@ -128,6 +141,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NotSameUserException }
+     * 
+     */
+    public NotSameUserException createNotSameUserException() {
+        return new NotSameUserException();
+    }
+
+    /**
      * Create an instance of {@link CreateClaim }
      * 
      */
@@ -160,19 +181,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListDocumentsOfClaim }
+     * Create an instance of {@link DeleteDocumentOfClaim }
      * 
      */
-    public ListDocumentsOfClaim createListDocumentsOfClaim() {
-        return new ListDocumentsOfClaim();
+    public DeleteDocumentOfClaim createDeleteDocumentOfClaim() {
+        return new DeleteDocumentOfClaim();
     }
 
     /**
-     * Create an instance of {@link ListDocumentsOfClaimResponse }
+     * Create an instance of {@link DeleteDocumentOfClaimResponse }
      * 
      */
-    public ListDocumentsOfClaimResponse createListDocumentsOfClaimResponse() {
-        return new ListDocumentsOfClaimResponse();
+    public DeleteDocumentOfClaimResponse createDeleteDocumentOfClaimResponse() {
+        return new DeleteDocumentOfClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetDocumentKeysOfClaim }
+     * 
+     */
+    public GetDocumentKeysOfClaim createGetDocumentKeysOfClaim() {
+        return new GetDocumentKeysOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link GetDocumentKeysOfClaimResponse }
+     * 
+     */
+    public GetDocumentKeysOfClaimResponse createGetDocumentKeysOfClaimResponse() {
+        return new GetDocumentKeysOfClaimResponse();
     }
 
     /**
@@ -192,6 +229,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReadDocumentContentOfClaim }
+     * 
+     */
+    public ReadDocumentContentOfClaim createReadDocumentContentOfClaim() {
+        return new ReadDocumentContentOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link ReadDocumentContentOfClaimResponse }
+     * 
+     */
+    public ReadDocumentContentOfClaimResponse createReadDocumentContentOfClaimResponse() {
+        return new ReadDocumentContentOfClaimResponse();
+    }
+
+    /**
      * Create an instance of {@link ReadDocumentOfClaim }
      * 
      */
@@ -205,6 +258,38 @@ public class ObjectFactory {
      */
     public ReadDocumentOfClaimResponse createReadDocumentOfClaimResponse() {
         return new ReadDocumentOfClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadDocumentSignatureOfClaim }
+     * 
+     */
+    public ReadDocumentSignatureOfClaim createReadDocumentSignatureOfClaim() {
+        return new ReadDocumentSignatureOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link ReadDocumentSignatureOfClaimResponse }
+     * 
+     */
+    public ReadDocumentSignatureOfClaimResponse createReadDocumentSignatureOfClaimResponse() {
+        return new ReadDocumentSignatureOfClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadDocumentUserOfClaim }
+     * 
+     */
+    public ReadDocumentUserOfClaim createReadDocumentUserOfClaim() {
+        return new ReadDocumentUserOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link ReadDocumentUserOfClaimResponse }
+     * 
+     */
+    public ReadDocumentUserOfClaimResponse createReadDocumentUserOfClaimResponse() {
+        return new ReadDocumentUserOfClaimResponse();
     }
 
     /**
@@ -237,6 +322,38 @@ public class ObjectFactory {
      */
     public StoreClaimResponse createStoreClaimResponse() {
         return new StoreClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateClaim }
+     * 
+     */
+    public UpdateClaim createUpdateClaim() {
+        return new UpdateClaim();
+    }
+
+    /**
+     * Create an instance of {@link UpdateClaimResponse }
+     * 
+     */
+    public UpdateClaimResponse createUpdateClaimResponse() {
+        return new UpdateClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDocumentOfClaim }
+     * 
+     */
+    public UpdateDocumentOfClaim createUpdateDocumentOfClaim() {
+        return new UpdateDocumentOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDocumentOfClaimResponse }
+     * 
+     */
+    public UpdateDocumentOfClaimResponse createUpdateDocumentOfClaimResponse() {
+        return new UpdateDocumentOfClaimResponse();
     }
 
     /**
@@ -365,6 +482,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotSameUserException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link NotSameUserException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "NotSameUserException")
+    public JAXBElement<NotSameUserException> createNotSameUserException(NotSameUserException value) {
+        return new JAXBElement<NotSameUserException>(_NotSameUserException_QNAME, NotSameUserException.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreateClaim }{@code >}
      * 
      * @param value
@@ -417,29 +547,55 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListDocumentsOfClaim }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaim }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListDocumentsOfClaim }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaim }{@code >}
      */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "listDocumentsOfClaim")
-    public JAXBElement<ListDocumentsOfClaim> createListDocumentsOfClaim(ListDocumentsOfClaim value) {
-        return new JAXBElement<ListDocumentsOfClaim>(_ListDocumentsOfClaim_QNAME, ListDocumentsOfClaim.class, null, value);
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "deleteDocumentOfClaim")
+    public JAXBElement<DeleteDocumentOfClaim> createDeleteDocumentOfClaim(DeleteDocumentOfClaim value) {
+        return new JAXBElement<DeleteDocumentOfClaim>(_DeleteDocumentOfClaim_QNAME, DeleteDocumentOfClaim.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListDocumentsOfClaimResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaimResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListDocumentsOfClaimResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteDocumentOfClaimResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "listDocumentsOfClaimResponse")
-    public JAXBElement<ListDocumentsOfClaimResponse> createListDocumentsOfClaimResponse(ListDocumentsOfClaimResponse value) {
-        return new JAXBElement<ListDocumentsOfClaimResponse>(_ListDocumentsOfClaimResponse_QNAME, ListDocumentsOfClaimResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "deleteDocumentOfClaimResponse")
+    public JAXBElement<DeleteDocumentOfClaimResponse> createDeleteDocumentOfClaimResponse(DeleteDocumentOfClaimResponse value) {
+        return new JAXBElement<DeleteDocumentOfClaimResponse>(_DeleteDocumentOfClaimResponse_QNAME, DeleteDocumentOfClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDocumentKeysOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetDocumentKeysOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "getDocumentKeysOfClaim")
+    public JAXBElement<GetDocumentKeysOfClaim> createGetDocumentKeysOfClaim(GetDocumentKeysOfClaim value) {
+        return new JAXBElement<GetDocumentKeysOfClaim>(_GetDocumentKeysOfClaim_QNAME, GetDocumentKeysOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDocumentKeysOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetDocumentKeysOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "getDocumentKeysOfClaimResponse")
+    public JAXBElement<GetDocumentKeysOfClaimResponse> createGetDocumentKeysOfClaimResponse(GetDocumentKeysOfClaimResponse value) {
+        return new JAXBElement<GetDocumentKeysOfClaimResponse>(_GetDocumentKeysOfClaimResponse_QNAME, GetDocumentKeysOfClaimResponse.class, null, value);
     }
 
     /**
@@ -469,6 +625,32 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentContentOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentContentOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentContentOfClaim")
+    public JAXBElement<ReadDocumentContentOfClaim> createReadDocumentContentOfClaim(ReadDocumentContentOfClaim value) {
+        return new JAXBElement<ReadDocumentContentOfClaim>(_ReadDocumentContentOfClaim_QNAME, ReadDocumentContentOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentContentOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentContentOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentContentOfClaimResponse")
+    public JAXBElement<ReadDocumentContentOfClaimResponse> createReadDocumentContentOfClaimResponse(ReadDocumentContentOfClaimResponse value) {
+        return new JAXBElement<ReadDocumentContentOfClaimResponse>(_ReadDocumentContentOfClaimResponse_QNAME, ReadDocumentContentOfClaimResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentOfClaim }{@code >}
      * 
      * @param value
@@ -492,6 +674,58 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentOfClaimResponse")
     public JAXBElement<ReadDocumentOfClaimResponse> createReadDocumentOfClaimResponse(ReadDocumentOfClaimResponse value) {
         return new JAXBElement<ReadDocumentOfClaimResponse>(_ReadDocumentOfClaimResponse_QNAME, ReadDocumentOfClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentSignatureOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentSignatureOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentSignatureOfClaim")
+    public JAXBElement<ReadDocumentSignatureOfClaim> createReadDocumentSignatureOfClaim(ReadDocumentSignatureOfClaim value) {
+        return new JAXBElement<ReadDocumentSignatureOfClaim>(_ReadDocumentSignatureOfClaim_QNAME, ReadDocumentSignatureOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentSignatureOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentSignatureOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentSignatureOfClaimResponse")
+    public JAXBElement<ReadDocumentSignatureOfClaimResponse> createReadDocumentSignatureOfClaimResponse(ReadDocumentSignatureOfClaimResponse value) {
+        return new JAXBElement<ReadDocumentSignatureOfClaimResponse>(_ReadDocumentSignatureOfClaimResponse_QNAME, ReadDocumentSignatureOfClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentUserOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentUserOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentUserOfClaim")
+    public JAXBElement<ReadDocumentUserOfClaim> createReadDocumentUserOfClaim(ReadDocumentUserOfClaim value) {
+        return new JAXBElement<ReadDocumentUserOfClaim>(_ReadDocumentUserOfClaim_QNAME, ReadDocumentUserOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadDocumentUserOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadDocumentUserOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readDocumentUserOfClaimResponse")
+    public JAXBElement<ReadDocumentUserOfClaimResponse> createReadDocumentUserOfClaimResponse(ReadDocumentUserOfClaimResponse value) {
+        return new JAXBElement<ReadDocumentUserOfClaimResponse>(_ReadDocumentUserOfClaimResponse_QNAME, ReadDocumentUserOfClaimResponse.class, null, value);
     }
 
     /**
@@ -544,6 +778,58 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "storeClaimResponse")
     public JAXBElement<StoreClaimResponse> createStoreClaimResponse(StoreClaimResponse value) {
         return new JAXBElement<StoreClaimResponse>(_StoreClaimResponse_QNAME, StoreClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateClaim")
+    public JAXBElement<UpdateClaim> createUpdateClaim(UpdateClaim value) {
+        return new JAXBElement<UpdateClaim>(_UpdateClaim_QNAME, UpdateClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateClaimResponse")
+    public JAXBElement<UpdateClaimResponse> createUpdateClaimResponse(UpdateClaimResponse value) {
+        return new JAXBElement<UpdateClaimResponse>(_UpdateClaimResponse_QNAME, UpdateClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateDocumentOfClaim")
+    public JAXBElement<UpdateDocumentOfClaim> createUpdateDocumentOfClaim(UpdateDocumentOfClaim value) {
+        return new JAXBElement<UpdateDocumentOfClaim>(_UpdateDocumentOfClaim_QNAME, UpdateDocumentOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateDocumentOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "updateDocumentOfClaimResponse")
+    public JAXBElement<UpdateDocumentOfClaimResponse> createUpdateDocumentOfClaimResponse(UpdateDocumentOfClaimResponse value) {
+        return new JAXBElement<UpdateDocumentOfClaimResponse>(_UpdateDocumentOfClaimResponse_QNAME, UpdateDocumentOfClaimResponse.class, null, value);
     }
 
 }
