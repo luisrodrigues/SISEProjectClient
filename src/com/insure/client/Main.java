@@ -187,9 +187,9 @@ public class Main {
             //builds a string of document info by reading all of the existing keys inside the claim documentMap
             String listString = "";
             List<Integer> documentKeys = docStorage.getDocumentKeysOfClaim(claimId);
-            //only displays the document uui and its creator's userId
+            //only displays the document uuid's
             for (int i = 0; i < documentKeys.size(); i++) {
-                listString += "Document{uuid: " + i + ", userId: " + docStorage.readDocumentUserOfClaim(claimId, i) + "}\n";
+                listString += "Document{uuid: " + documentKeys.get(i) + "}\n";
             }
 
             if (listString.equals("")) {
@@ -197,8 +197,7 @@ public class Main {
             } else {
                 JOptionPane.showMessageDialog(null, listString);
             }
-        } catch ( ClaimNotFoundException_Exception | HeadlessException
-                | DocumentNotFoundException_Exception e) {
+        } catch ( ClaimNotFoundException_Exception | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
