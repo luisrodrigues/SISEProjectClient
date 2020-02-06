@@ -29,7 +29,6 @@ public class ObjectFactory {
     private final static QName _DocumentNotFoundException_QNAME = new QName("http://server.insure.com/", "DocumentNotFoundException");
     private final static QName _IOException_QNAME = new QName("http://server.insure.com/", "IOException");
     private final static QName _IllegalBlockSizeException_QNAME = new QName("http://server.insure.com/", "IllegalBlockSizeException");
-    private final static QName _InvalidClaimDescriptionException_QNAME = new QName("http://server.insure.com/", "InvalidClaimDescriptionException");
     private final static QName _InvalidDocumentContentException_QNAME = new QName("http://server.insure.com/", "InvalidDocumentContentException");
     private final static QName _InvalidDocumentTypeException_QNAME = new QName("http://server.insure.com/", "InvalidDocumentTypeException");
     private final static QName _InvalidKeyException_QNAME = new QName("http://server.insure.com/", "InvalidKeyException");
@@ -112,14 +111,6 @@ public class ObjectFactory {
      */
     public IllegalBlockSizeException createIllegalBlockSizeException() {
         return new IllegalBlockSizeException();
-    }
-
-    /**
-     * Create an instance of {@link InvalidClaimDescriptionException }
-     * 
-     */
-    public InvalidClaimDescriptionException createInvalidClaimDescriptionException() {
-        return new InvalidClaimDescriptionException();
     }
 
     /**
@@ -481,19 +472,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "IllegalBlockSizeException")
     public JAXBElement<IllegalBlockSizeException> createIllegalBlockSizeException(IllegalBlockSizeException value) {
         return new JAXBElement<IllegalBlockSizeException>(_IllegalBlockSizeException_QNAME, IllegalBlockSizeException.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidClaimDescriptionException }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidClaimDescriptionException }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidClaimDescriptionException")
-    public JAXBElement<InvalidClaimDescriptionException> createInvalidClaimDescriptionException(InvalidClaimDescriptionException value) {
-        return new JAXBElement<InvalidClaimDescriptionException>(_InvalidClaimDescriptionException_QNAME, InvalidClaimDescriptionException.class, null, value);
     }
 
     /**

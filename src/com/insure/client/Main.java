@@ -279,8 +279,7 @@ public class Main {
             int claimId = docStorage.createClaim(claimDescription, userId);
             // prints the claim
             JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
-        } catch (ClaimNotFoundException_Exception | InvalidClaimDescriptionException_Exception
-                | InvalidUserException_Exception e) {
+        } catch (ClaimNotFoundException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
