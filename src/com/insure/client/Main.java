@@ -118,7 +118,7 @@ public class Main {
             int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
             // prints the claim
             JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
-        } catch (ClaimNotFoundException_Exception e) {
+        } catch (NumberFormatException | ClaimNotFoundException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
@@ -137,7 +137,7 @@ public class Main {
             docStorage.updateDocumentOfClaim(claimId, documentId, newDocumentContent, digitalSignature, userId);
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                     documentId));
-        } catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
+        } catch (NumberFormatException | NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
                 | InvalidKeyException | IllegalBlockSizeException | ClaimNotFoundException_Exception
                 | DocumentNotFoundException_Exception | NotSameUserException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -151,21 +151,20 @@ public class Main {
             int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
             // deletion action
             docStorage.deleteDocumentOfClaim(claimId, documentId, userId);
-        } catch (ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NotSameUserException_Exception e) {
+        } catch (NumberFormatException | ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NotSameUserException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
     private static void updateClaimClient(ClaimDataStore docStorage) {
-        //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        String newClaimDescription = JOptionPane.showInputDialog("Insert new claim description: ");
-
         try {
+            //reading user input
+            int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+            String newClaimDescription = JOptionPane.showInputDialog("Insert new claim description: ");
             //updates claim and displays it
             docStorage.updateClaim(claimId, newClaimDescription);
             JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
-        } catch (ClaimNotFoundException_Exception e) {
+        } catch (NumberFormatException | ClaimNotFoundException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
@@ -189,7 +188,7 @@ public class Main {
             // reads document
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                     documentId));
-        } catch (ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NoSuchAlgorithmException
+        } catch (NumberFormatException | ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NoSuchAlgorithmException
                 | IOException | InvalidKeySpecException | BadPaddingException | InvalidKeyException
                 | IllegalBlockSizeException | DocumentTamperedException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -214,15 +213,16 @@ public class Main {
             } else {
                 JOptionPane.showMessageDialog(null, listString);
             }
-        } catch ( ClaimNotFoundException_Exception | HeadlessException e) {
+        } catch (NumberFormatException | ClaimNotFoundException_Exception | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
 
     private static void readDocumentClient(Signature signature, ClaimDataStore docStorage) {
+        //builds a string of document
         try {
-            //buids a string of document
+            //inputs
             int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
             int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
             //verifying signature on the client side
@@ -236,7 +236,7 @@ public class Main {
             // reads document
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                     documentId));
-        } catch (ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NoSuchAlgorithmException
+        } catch (NumberFormatException | ClaimNotFoundException_Exception | DocumentNotFoundException_Exception | NoSuchAlgorithmException
                 | IOException | InvalidKeySpecException | BadPaddingException | InvalidKeyException
                 | IllegalBlockSizeException | DocumentTamperedException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -260,7 +260,7 @@ public class Main {
             // reads document
             JOptionPane.showMessageDialog(null, docStorage.readDocumentOfClaim(claimId,
                         documentId));
-        } catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
+        } catch (NumberFormatException | NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
                 | InvalidKeyException | IllegalBlockSizeException | BadPaddingException_Exception
                 | ClaimNotFoundException_Exception | IOException_Exception | IllegalBlockSizeException_Exception
                 | InvalidKeyException_Exception | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
