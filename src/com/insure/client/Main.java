@@ -180,7 +180,8 @@ public class Main {
 
         try {
             //verifying signature on the client side
-            String documentContent = docStorage.readAndTamperDocumentContentOfClaim(claimId, documentId);
+            docStorage.tamperDocumentContentOfClaim(claimId, documentId);
+            String documentContent = docStorage.readDocumentContentOfClaim(claimId, documentId);
             String documentUser = docStorage.readDocumentUserOfClaim(claimId, documentId);
             String documentSignature = docStorage.readDocumentSignatureOfClaim(claimId, documentId);
 
