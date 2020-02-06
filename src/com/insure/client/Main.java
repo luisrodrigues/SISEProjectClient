@@ -41,7 +41,7 @@ public class Main {
             // select user keys
             String KEYS = "keys_" + userId + "/";
             //client action options
-            String[] options = {"create claim", "update claim" , "create document", "read document", "update document",
+            String[] options = {"create claim", "read claim", "update claim" , "create document", "read document", "update document",
                     "delete document", "list documents", "simulate document tampering", "exit"};
 
             // main state variable
@@ -50,13 +50,19 @@ public class Main {
         while (isRunning) {
             //main action dropdown with user options
             String expression = (String)JOptionPane.showInputDialog(null, "Insert your action:",
-                    "You are " + userId, JOptionPane.QUESTION_MESSAGE, null, options, options[8]);
+                    "You are " + userId, JOptionPane.QUESTION_MESSAGE, null, options, options[9]);
 
                 switch (expression) {
                     case "create claim":
 
                         createClaimClient(docStorage, userId);
                         break;
+
+                    case "read claim":
+
+                        readClaimClient(docStorage);
+                        break;
+
 
                     case "update claim":
 
@@ -103,6 +109,18 @@ public class Main {
                 }
         }
 
+    }
+
+    private static void readClaimClient(ClaimDataStore docStorage) {
+        // reading user input
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+
+        try {
+            // prints the claim
+            JOptionPane.showMessageDialog(null, docStorage.printClaim(claimId));
+        } catch (ClaimNotFoundException_Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 
     private static void updateDocumentClient(Signature signature, ClaimDataStore docStorage, String userId) {
