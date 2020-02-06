@@ -114,7 +114,7 @@ public class Main {
 
     private static void readClaimClient(ClaimDataStore docStorage) {
         // reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
 
         try {
             // prints the claim
@@ -126,9 +126,9 @@ public class Main {
 
     private static void updateDocumentClient(Signature signature, ClaimDataStore docStorage, String userId) {
         //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
-        String newDocumentContent = JOptionPane.showInputDialog("Insert document content: ");
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        int documentId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_DOCUMENT_ID, -1));
+        String newDocumentContent = JOptionPane.showInputDialog(null, "Insert document content: ", "");
 
         try {
             // generates new signature based on the new content
@@ -148,8 +148,8 @@ public class Main {
 
     private static void deleteDocumentClient(ClaimDataStore docStorage, String userId) {
         //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        int documentId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_DOCUMENT_ID, -1));
 
         try {
             // deletion action
@@ -161,8 +161,8 @@ public class Main {
 
     private static void updateClaimClient(ClaimDataStore docStorage) {
         //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        String newClaimDescription = JOptionPane.showInputDialog("Insert new claim description: ");
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        String newClaimDescription = JOptionPane.showInputDialog(null, "Insert new claim description: ", "");
 
         try {
             //updates claim and displays it
@@ -176,8 +176,8 @@ public class Main {
 
     private static void simulateDocumentTamperingClient(Signature signature, ClaimDataStore docStorage) {
         //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        int documentId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_DOCUMENT_ID, -1));
 
         try {
             //verifying signature on the client side
@@ -203,7 +203,7 @@ public class Main {
 
     private static void listDocumentsClient(ClaimDataStore docStorage) {
         //reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
 
         try {
             //builds a string of document info by reading all of the existing keys inside the claim documentMap
@@ -227,8 +227,8 @@ public class Main {
 
     private static void readDocumentClient(Signature signature, ClaimDataStore docStorage) {
         //buids a string of document
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        int documentId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_DOCUMENT_ID));
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        int documentId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_DOCUMENT_ID, -1));
 
         try {
             //verifying signature on the client side
@@ -252,10 +252,10 @@ public class Main {
 
     private static void createDocumentClient(Signature signature, ClaimDataStore docStorage, String userId) {
         // reading user input
-        int claimId = Integer.parseInt(JOptionPane.showInputDialog(INSERT_CLAIM_ID));
-        int documentType = Integer.parseInt(JOptionPane.showInputDialog("Insert the document type number (1 - Expert " +
-                "Report, 2 - Police Report, 3 - Medical Report): "));
-        String documentContent = JOptionPane.showInputDialog("Insert document content: ");
+        int claimId = Integer.parseInt(JOptionPane.showInputDialog(null, INSERT_CLAIM_ID, -1));
+        int documentType = Integer.parseInt(JOptionPane.showInputDialog(null, "Insert the document type number (1 - Expert " +
+                "Report, 2 - Police Report, 3 - Medical Report): ", -1));
+        String documentContent = JOptionPane.showInputDialog(null, "Insert document content: ", "");
 
         try {
             // generates digital signature based on the document content
@@ -282,7 +282,7 @@ public class Main {
     private static void createClaimClient(ClaimDataStore docStorage, String userId) throws
             InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
         // reading user input
-        String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
+        String claimDescription = JOptionPane.showInputDialog(null, "Insert claim description: ", "");
         int claimId = docStorage.createClaim(claimDescription, userId);
 
         try {
