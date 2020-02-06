@@ -110,7 +110,7 @@ public class Main {
         String newDocumentContent = JOptionPane.showInputDialog("Insert document content: ");
 
         try {
-            // generates new signature
+            // generates new signature based on the new content
             String digitalSignature = signature.generate(newDocumentContent, KEYS +
                     userId + "PrivateKey");
             // adds new content and signature
@@ -237,7 +237,7 @@ public class Main {
         String documentContent = JOptionPane.showInputDialog("Insert document content: ");
 
         try {
-            // generates digital signature
+            // generates digital signature based on the document content
             String digitalSignature = signature.generate(documentContent, KEYS +
                         userId + "PrivateKey");
             // the creator of the document is this "session" 's user
