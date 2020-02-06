@@ -38,6 +38,8 @@ public class Main {
             // [Client code]
             // userid for the session
             String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
+            // select user keys
+            String KEYS = "keys_" + userId + "/";
             //client action options
             String[] options = {"create claim", "update claim" , "create document", "read document", "update document",
                     "delete document", "list documents", "simulate document tampering", "exit"};
