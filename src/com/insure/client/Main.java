@@ -26,7 +26,8 @@ public class Main {
     public static final String INSERT_DOCUMENT_ID = "Insert document id: ";
     public static String keys = "keys_";
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
 
             Signature signature = new Signature();
             String url = "http://localhost:8090/claimservice";
@@ -41,8 +42,8 @@ public class Main {
             // select user keys
             keys += userId + "/";
             //client action options
-            String[] options = {"create claim", "read claim", "update claim" , "create document", "read document", "update document",
-                    "delete document", "list documents", "simulate document tampering", "exit"};
+            String[] options = {"create claim", "read claim", "update claim" , "create document", "read document",
+                    "update document", "delete document", "list documents", "simulate document tampering", "exit"};
 
             // main state variable
             boolean isRunning = true;
