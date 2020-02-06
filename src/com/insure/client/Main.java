@@ -162,12 +162,12 @@ public class Main {
 
         try {
             //verifying signature on the client side
-            String documentContent = docStorage.readDocumentContentOfClaim(claimId, documentId);
+            String documentContent = docStorage.readAndTamperDocumentContentOfClaim(claimId, documentId);
             String documentUser = docStorage.readDocumentUserOfClaim(claimId, documentId);
             String documentSignature = docStorage.readDocumentSignatureOfClaim(claimId, documentId);
 
             // Messes the content of the document as if it was tampered in the server
-            if (!signature.verify(documentContent + "This has been tampered", documentSignature, KEYS + documentUser + "PublicKey")) {
+            if (!signature.verify(documentContent, documentSignature, KEYS + documentUser + "PublicKey")) {
                 throw new DocumentTamperedException("Document "+ documentId +"'s contents have been tampered");
             }
             // reads document

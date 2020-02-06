@@ -44,6 +44,8 @@ public class ObjectFactory {
     private final static QName _GetDocumentKeysOfClaimResponse_QNAME = new QName("http://server.insure.com/", "getDocumentKeysOfClaimResponse");
     private final static QName _PrintClaim_QNAME = new QName("http://server.insure.com/", "printClaim");
     private final static QName _PrintClaimResponse_QNAME = new QName("http://server.insure.com/", "printClaimResponse");
+    private final static QName _ReadAndTamperDocumentContentOfClaim_QNAME = new QName("http://server.insure.com/", "readAndTamperDocumentContentOfClaim");
+    private final static QName _ReadAndTamperDocumentContentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readAndTamperDocumentContentOfClaimResponse");
     private final static QName _ReadDocumentContentOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentContentOfClaim");
     private final static QName _ReadDocumentContentOfClaimResponse_QNAME = new QName("http://server.insure.com/", "readDocumentContentOfClaimResponse");
     private final static QName _ReadDocumentOfClaim_QNAME = new QName("http://server.insure.com/", "readDocumentOfClaim");
@@ -226,6 +228,22 @@ public class ObjectFactory {
      */
     public PrintClaimResponse createPrintClaimResponse() {
         return new PrintClaimResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadAndTamperDocumentContentOfClaim }
+     * 
+     */
+    public ReadAndTamperDocumentContentOfClaim createReadAndTamperDocumentContentOfClaim() {
+        return new ReadAndTamperDocumentContentOfClaim();
+    }
+
+    /**
+     * Create an instance of {@link ReadAndTamperDocumentContentOfClaimResponse }
+     * 
+     */
+    public ReadAndTamperDocumentContentOfClaimResponse createReadAndTamperDocumentContentOfClaimResponse() {
+        return new ReadAndTamperDocumentContentOfClaimResponse();
     }
 
     /**
@@ -622,6 +640,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "printClaimResponse")
     public JAXBElement<PrintClaimResponse> createPrintClaimResponse(PrintClaimResponse value) {
         return new JAXBElement<PrintClaimResponse>(_PrintClaimResponse_QNAME, PrintClaimResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadAndTamperDocumentContentOfClaim }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadAndTamperDocumentContentOfClaim }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readAndTamperDocumentContentOfClaim")
+    public JAXBElement<ReadAndTamperDocumentContentOfClaim> createReadAndTamperDocumentContentOfClaim(ReadAndTamperDocumentContentOfClaim value) {
+        return new JAXBElement<ReadAndTamperDocumentContentOfClaim>(_ReadAndTamperDocumentContentOfClaim_QNAME, ReadAndTamperDocumentContentOfClaim.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadAndTamperDocumentContentOfClaimResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReadAndTamperDocumentContentOfClaimResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "readAndTamperDocumentContentOfClaimResponse")
+    public JAXBElement<ReadAndTamperDocumentContentOfClaimResponse> createReadAndTamperDocumentContentOfClaimResponse(ReadAndTamperDocumentContentOfClaimResponse value) {
+        return new JAXBElement<ReadAndTamperDocumentContentOfClaimResponse>(_ReadAndTamperDocumentContentOfClaimResponse_QNAME, ReadAndTamperDocumentContentOfClaimResponse.class, null, value);
     }
 
     /**

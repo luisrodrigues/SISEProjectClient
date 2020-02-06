@@ -28,145 +28,6 @@ public interface ClaimDataStore {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns com.insure.client.gen.Claim
-     * @throws ClaimNotFoundException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "retrieveClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.RetrieveClaim")
-    @ResponseWrapper(localName = "retrieveClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.RetrieveClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/retrieveClaimRequest", output = "http://server.insure.com/ClaimDataStore/retrieveClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/retrieveClaim/Fault/ClaimNotFoundException")
-    })
-    public Claim retrieveClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0)
-        throws ClaimNotFoundException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateClaim")
-    @ResponseWrapper(localName = "createClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/createClaimRequest", output = "http://server.insure.com/ClaimDataStore/createClaimResponse")
-    public int createClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "storeClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.StoreClaim")
-    @ResponseWrapper(localName = "storeClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.StoreClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/storeClaimRequest", output = "http://server.insure.com/ClaimDataStore/storeClaimResponse")
-    public void storeClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Claim arg1);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @throws ClaimNotFoundException_Exception
-     */
-    @WebMethod
-    @RequestWrapper(localName = "updateClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.UpdateClaim")
-    @ResponseWrapper(localName = "updateClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.UpdateClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/updateClaimRequest", output = "http://server.insure.com/ClaimDataStore/updateClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/updateClaim/Fault/ClaimNotFoundException")
-    })
-    public void updateClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1)
-        throws ClaimNotFoundException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     * @throws ClaimNotFoundException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "printClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.PrintClaim")
-    @ResponseWrapper(localName = "printClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.PrintClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/printClaimRequest", output = "http://server.insure.com/ClaimDataStore/printClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/printClaim/Fault/ClaimNotFoundException")
-    })
-    public String printClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0)
-        throws ClaimNotFoundException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns int
-     * @throws IOException_Exception
-     * @throws ClaimNotFoundException_Exception
-     * @throws NoSuchAlgorithmException_Exception
-     * @throws BadPaddingException_Exception
-     * @throws InvalidKeyException_Exception
-     * @throws InvalidKeySpecException_Exception
-     * @throws IllegalBlockSizeException_Exception
-     * @throws InvalidSignatureException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateDocumentOfClaim")
-    @ResponseWrapper(localName = "createDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateDocumentOfClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/createDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/createDocumentOfClaimResponse", fault = {
-        @FaultAction(className = BadPaddingException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/BadPaddingException"),
-        @FaultAction(className = InvalidSignatureException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidSignatureException"),
-        @FaultAction(className = NoSuchAlgorithmException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/NoSuchAlgorithmException"),
-        @FaultAction(className = IOException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/IOException"),
-        @FaultAction(className = IllegalBlockSizeException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/IllegalBlockSizeException"),
-        @FaultAction(className = InvalidKeyException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidKeyException"),
-        @FaultAction(className = InvalidKeySpecException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidKeySpecException"),
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/ClaimNotFoundException")
-    })
-    public int createDocumentOfClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        String arg4)
-        throws BadPaddingException_Exception, ClaimNotFoundException_Exception, IOException_Exception, IllegalBlockSizeException_Exception, InvalidKeyException_Exception, InvalidKeySpecException_Exception, InvalidSignatureException_Exception, NoSuchAlgorithmException_Exception
-    ;
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @return
@@ -183,6 +44,31 @@ public interface ClaimDataStore {
         @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentContentOfClaim/Fault/DocumentNotFoundException")
     })
     public String readDocumentContentOfClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1)
+        throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     * @throws ClaimNotFoundException_Exception
+     * @throws DocumentNotFoundException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "readDocumentUserOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentUserOfClaim")
+    @ResponseWrapper(localName = "readDocumentUserOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentUserOfClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaim/Fault/ClaimNotFoundException"),
+        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaim/Fault/DocumentNotFoundException")
+    })
+    public String readDocumentUserOfClaim(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -225,6 +111,77 @@ public interface ClaimDataStore {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     * @throws ClaimNotFoundException_Exception
+     * @throws DocumentNotFoundException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "readDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentOfClaim")
+    @ResponseWrapper(localName = "readDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentOfClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/readDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/readDocumentOfClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentOfClaim/Fault/ClaimNotFoundException"),
+        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentOfClaim/Fault/DocumentNotFoundException")
+    })
+    public String readDocumentOfClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1)
+        throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns int
+     * @throws NoSuchAlgorithmException_Exception
+     * @throws ClaimNotFoundException_Exception
+     * @throws IOException_Exception
+     * @throws InvalidSignatureException_Exception
+     * @throws InvalidKeySpecException_Exception
+     * @throws BadPaddingException_Exception
+     * @throws InvalidKeyException_Exception
+     * @throws IllegalBlockSizeException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateDocumentOfClaim")
+    @ResponseWrapper(localName = "createDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateDocumentOfClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/createDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/createDocumentOfClaimResponse", fault = {
+        @FaultAction(className = BadPaddingException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/BadPaddingException"),
+        @FaultAction(className = InvalidSignatureException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidSignatureException"),
+        @FaultAction(className = NoSuchAlgorithmException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/NoSuchAlgorithmException"),
+        @FaultAction(className = IOException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/IOException"),
+        @FaultAction(className = IllegalBlockSizeException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/IllegalBlockSizeException"),
+        @FaultAction(className = InvalidKeyException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidKeyException"),
+        @FaultAction(className = InvalidKeySpecException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/InvalidKeySpecException"),
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/createDocumentOfClaim/Fault/ClaimNotFoundException")
+    })
+    public int createDocumentOfClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        String arg4)
+        throws BadPaddingException_Exception, ClaimNotFoundException_Exception, IOException_Exception, IllegalBlockSizeException_Exception, InvalidKeyException_Exception, InvalidKeySpecException_Exception, InvalidSignatureException_Exception, NoSuchAlgorithmException_Exception
+    ;
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.util.List<java.lang.Integer>
@@ -241,6 +198,33 @@ public interface ClaimDataStore {
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0)
         throws ClaimNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @throws ClaimNotFoundException_Exception
+     * @throws DocumentNotFoundException_Exception
+     * @throws NotSameUserException_Exception
+     */
+    @WebMethod
+    @RequestWrapper(localName = "deleteDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.DeleteDocumentOfClaim")
+    @ResponseWrapper(localName = "deleteDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.DeleteDocumentOfClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/ClaimNotFoundException"),
+        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/DocumentNotFoundException"),
+        @FaultAction(className = NotSameUserException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/NotSameUserException")
+    })
+    public void deleteDocumentOfClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2)
+        throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception, NotSameUserException_Exception
     ;
 
     /**
@@ -270,27 +254,95 @@ public interface ClaimDataStore {
 
     /**
      * 
-     * @param arg1
      * @param arg0
      * @return
      *     returns java.lang.String
      * @throws ClaimNotFoundException_Exception
-     * @throws DocumentNotFoundException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "readDocumentUserOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentUserOfClaim")
-    @ResponseWrapper(localName = "readDocumentUserOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentUserOfClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaim/Fault/ClaimNotFoundException"),
-        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentUserOfClaim/Fault/DocumentNotFoundException")
+    @RequestWrapper(localName = "printClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.PrintClaim")
+    @ResponseWrapper(localName = "printClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.PrintClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/printClaimRequest", output = "http://server.insure.com/ClaimDataStore/printClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/printClaim/Fault/ClaimNotFoundException")
     })
-    public String readDocumentUserOfClaim(
+    public String printClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0)
+        throws ClaimNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @throws ClaimNotFoundException_Exception
+     */
+    @WebMethod
+    @RequestWrapper(localName = "updateClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.UpdateClaim")
+    @ResponseWrapper(localName = "updateClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.UpdateClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/updateClaimRequest", output = "http://server.insure.com/ClaimDataStore/updateClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/updateClaim/Fault/ClaimNotFoundException")
+    })
+    public void updateClaim(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        int arg1)
-        throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception
+        String arg1)
+        throws ClaimNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "storeClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.StoreClaim")
+    @ResponseWrapper(localName = "storeClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.StoreClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/storeClaimRequest", output = "http://server.insure.com/ClaimDataStore/storeClaimResponse")
+    public void storeClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Claim arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateClaim")
+    @ResponseWrapper(localName = "createClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.CreateClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/createClaimRequest", output = "http://server.insure.com/ClaimDataStore/createClaimResponse")
+    public int createClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns com.insure.client.gen.Claim
+     * @throws ClaimNotFoundException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "retrieveClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.RetrieveClaim")
+    @ResponseWrapper(localName = "retrieveClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.RetrieveClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/retrieveClaimRequest", output = "http://server.insure.com/ClaimDataStore/retrieveClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/retrieveClaim/Fault/ClaimNotFoundException")
+    })
+    public Claim retrieveClaim(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0)
+        throws ClaimNotFoundException_Exception
     ;
 
     /**
@@ -304,45 +356,18 @@ public interface ClaimDataStore {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "readDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentOfClaim")
-    @ResponseWrapper(localName = "readDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadDocumentOfClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/readDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/readDocumentOfClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentOfClaim/Fault/ClaimNotFoundException"),
-        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readDocumentOfClaim/Fault/DocumentNotFoundException")
+    @RequestWrapper(localName = "readAndTamperDocumentContentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadAndTamperDocumentContentOfClaim")
+    @ResponseWrapper(localName = "readAndTamperDocumentContentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.ReadAndTamperDocumentContentOfClaimResponse")
+    @Action(input = "http://server.insure.com/ClaimDataStore/readAndTamperDocumentContentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/readAndTamperDocumentContentOfClaimResponse", fault = {
+        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readAndTamperDocumentContentOfClaim/Fault/ClaimNotFoundException"),
+        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/readAndTamperDocumentContentOfClaim/Fault/DocumentNotFoundException")
     })
-    public String readDocumentOfClaim(
+    public String readAndTamperDocumentContentOfClaim(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         int arg1)
         throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @throws ClaimNotFoundException_Exception
-     * @throws DocumentNotFoundException_Exception
-     * @throws NotSameUserException_Exception
-     */
-    @WebMethod
-    @RequestWrapper(localName = "deleteDocumentOfClaim", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.DeleteDocumentOfClaim")
-    @ResponseWrapper(localName = "deleteDocumentOfClaimResponse", targetNamespace = "http://server.insure.com/", className = "com.insure.client.gen.DeleteDocumentOfClaimResponse")
-    @Action(input = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaimRequest", output = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaimResponse", fault = {
-        @FaultAction(className = ClaimNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/ClaimNotFoundException"),
-        @FaultAction(className = DocumentNotFoundException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/DocumentNotFoundException"),
-        @FaultAction(className = NotSameUserException_Exception.class, value = "http://server.insure.com/ClaimDataStore/deleteDocumentOfClaim/Fault/NotSameUserException")
-    })
-    public void deleteDocumentOfClaim(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2)
-        throws ClaimNotFoundException_Exception, DocumentNotFoundException_Exception, NotSameUserException_Exception
     ;
 
 }
