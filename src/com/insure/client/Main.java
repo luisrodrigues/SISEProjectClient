@@ -24,7 +24,7 @@ import java.util.List;
 public class Main {
     public static final String INSERT_CLAIM_ID = "Insert claim id: ";
     public static final String INSERT_DOCUMENT_ID = "Insert document id: ";
-    public static String KEYS = "keys/";
+    public static String keys = "keys_";
 
     public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
 
@@ -39,7 +39,7 @@ public class Main {
             // userid for the session
             String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
             // select user keys
-            KEYS += "keys_" + userId + "/";
+            keys += userId + "/";
             //client action options
             String[] options = {"create claim", "read claim", "update claim" , "create document", "read document", "update document",
                     "delete document", "list documents", "simulate document tampering", "exit"};
@@ -131,7 +131,7 @@ public class Main {
 
         try {
             // generates new signature based on the new content
-            String digitalSignature = signature.generate(newDocumentContent, KEYS +
+            String digitalSignature = signature.generate(newDocumentContent, keys +
                     userId + "PrivateKey");
             // adds new content and signature
             // outputs the newly updated document
@@ -185,7 +185,7 @@ public class Main {
             String documentSignature = docStorage.readDocumentSignatureOfClaim(claimId, documentId);
 
             // Messes the content of the document as if it was tampered in the server
-            if (!signature.verify(documentContent, documentSignature, KEYS + documentUser + "PublicKey")) {
+            if (!signature.verify(documentContent, documentSignature, keys + documentUser + "PublicKey")) {
                 throw new DocumentTamperedException("Document "+ documentId +"'s contents have been tampered");
             }
             // reads document
@@ -234,7 +234,7 @@ public class Main {
             String documentUser = docStorage.readDocumentUserOfClaim(claimId, documentId);
             String documentSignature = docStorage.readDocumentSignatureOfClaim(claimId, documentId);
 
-            if (!signature.verify(documentContent, documentSignature, KEYS + documentUser + "PublicKey")) {
+            if (!signature.verify(documentContent, documentSignature, keys + documentUser + "PublicKey")) {
                 throw new DocumentTamperedException("Document "+ documentId +"'s contents have been tampered");
             }
             // reads document
@@ -257,7 +257,7 @@ public class Main {
 
         try {
             // generates digital signature based on the document content
-            String digitalSignature = signature.generate(documentContent, KEYS +
+            String digitalSignature = signature.generate(documentContent, keys +
                         userId + "PrivateKey");
             // the creator of the document is this "session" 's user
             int documentId = docStorage.createDocumentOfClaim(claimId, documentType, documentContent, userId,
