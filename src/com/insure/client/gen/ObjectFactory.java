@@ -29,9 +29,13 @@ public class ObjectFactory {
     private final static QName _DocumentNotFoundException_QNAME = new QName("http://server.insure.com/", "DocumentNotFoundException");
     private final static QName _IOException_QNAME = new QName("http://server.insure.com/", "IOException");
     private final static QName _IllegalBlockSizeException_QNAME = new QName("http://server.insure.com/", "IllegalBlockSizeException");
+    private final static QName _InvalidClaimDescriptionException_QNAME = new QName("http://server.insure.com/", "InvalidClaimDescriptionException");
+    private final static QName _InvalidDocumentContentException_QNAME = new QName("http://server.insure.com/", "InvalidDocumentContentException");
+    private final static QName _InvalidDocumentTypeException_QNAME = new QName("http://server.insure.com/", "InvalidDocumentTypeException");
     private final static QName _InvalidKeyException_QNAME = new QName("http://server.insure.com/", "InvalidKeyException");
     private final static QName _InvalidKeySpecException_QNAME = new QName("http://server.insure.com/", "InvalidKeySpecException");
     private final static QName _InvalidSignatureException_QNAME = new QName("http://server.insure.com/", "InvalidSignatureException");
+    private final static QName _InvalidUserException_QNAME = new QName("http://server.insure.com/", "InvalidUserException");
     private final static QName _NoSuchAlgorithmException_QNAME = new QName("http://server.insure.com/", "NoSuchAlgorithmException");
     private final static QName _NotSameUserException_QNAME = new QName("http://server.insure.com/", "NotSameUserException");
     private final static QName _CreateClaim_QNAME = new QName("http://server.insure.com/", "createClaim");
@@ -111,6 +115,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InvalidClaimDescriptionException }
+     * 
+     */
+    public InvalidClaimDescriptionException createInvalidClaimDescriptionException() {
+        return new InvalidClaimDescriptionException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidDocumentContentException }
+     * 
+     */
+    public InvalidDocumentContentException createInvalidDocumentContentException() {
+        return new InvalidDocumentContentException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidDocumentTypeException }
+     * 
+     */
+    public InvalidDocumentTypeException createInvalidDocumentTypeException() {
+        return new InvalidDocumentTypeException();
+    }
+
+    /**
      * Create an instance of {@link InvalidKeyException }
      * 
      */
@@ -132,6 +160,14 @@ public class ObjectFactory {
      */
     public InvalidSignatureException createInvalidSignatureException() {
         return new InvalidSignatureException();
+    }
+
+    /**
+     * Create an instance of {@link InvalidUserException }
+     * 
+     */
+    public InvalidUserException createInvalidUserException() {
+        return new InvalidUserException();
     }
 
     /**
@@ -448,6 +484,45 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidClaimDescriptionException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidClaimDescriptionException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidClaimDescriptionException")
+    public JAXBElement<InvalidClaimDescriptionException> createInvalidClaimDescriptionException(InvalidClaimDescriptionException value) {
+        return new JAXBElement<InvalidClaimDescriptionException>(_InvalidClaimDescriptionException_QNAME, InvalidClaimDescriptionException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidDocumentContentException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidDocumentContentException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidDocumentContentException")
+    public JAXBElement<InvalidDocumentContentException> createInvalidDocumentContentException(InvalidDocumentContentException value) {
+        return new JAXBElement<InvalidDocumentContentException>(_InvalidDocumentContentException_QNAME, InvalidDocumentContentException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidDocumentTypeException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidDocumentTypeException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidDocumentTypeException")
+    public JAXBElement<InvalidDocumentTypeException> createInvalidDocumentTypeException(InvalidDocumentTypeException value) {
+        return new JAXBElement<InvalidDocumentTypeException>(_InvalidDocumentTypeException_QNAME, InvalidDocumentTypeException.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link InvalidKeyException }{@code >}
      * 
      * @param value
@@ -484,6 +559,19 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidSignatureException")
     public JAXBElement<InvalidSignatureException> createInvalidSignatureException(InvalidSignatureException value) {
         return new JAXBElement<InvalidSignatureException>(_InvalidSignatureException_QNAME, InvalidSignatureException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidUserException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidUserException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://server.insure.com/", name = "InvalidUserException")
+    public JAXBElement<InvalidUserException> createInvalidUserException(InvalidUserException value) {
+        return new JAXBElement<InvalidUserException>(_InvalidUserException_QNAME, InvalidUserException.class, null, value);
     }
 
     /**

@@ -24,9 +24,9 @@ import java.util.List;
 public class Main {
     public static final String INSERT_CLAIM_ID = "Insert claim id: ";
     public static final String INSERT_DOCUMENT_ID = "Insert document id: ";
-    public static final String KEYS = "keys/";
+    public static String KEYS = "keys/";
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
 
             Signature signature = new Signature();
             String url = "http://localhost:8090/claimservice";
@@ -39,7 +39,7 @@ public class Main {
             // userid for the session
             String userId = JOptionPane.showInputDialog("Insert username: ", "user1");
             // select user keys
-            String KEYS = "keys_" + userId + "/";
+            KEYS += "keys_" + userId + "/";
             //client action options
             String[] options = {"create claim", "read claim", "update claim" , "create document", "read document", "update document",
                     "delete document", "list documents", "simulate document tampering", "exit"};
@@ -268,15 +268,17 @@ public class Main {
         } catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException | BadPaddingException
                 | InvalidKeyException | IllegalBlockSizeException | BadPaddingException_Exception
                 | ClaimNotFoundException_Exception | IOException_Exception | IllegalBlockSizeException_Exception
-                | InvalidKeyException_Exception | InvalidKeySpecException_Exception
-                | InvalidSignatureException_Exception | NoSuchAlgorithmException_Exception
-                | DocumentNotFoundException_Exception e) {
+                | InvalidKeyException_Exception | InvalidKeySpecException_Exception | InvalidSignatureException_Exception
+                | NoSuchAlgorithmException_Exception | DocumentNotFoundException_Exception
+                | InvalidDocumentContentException_Exception | InvalidDocumentTypeException_Exception
+                | InvalidUserException_Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
 
-    private static void createClaimClient(ClaimDataStore docStorage, String userId) {
+    private static void createClaimClient(ClaimDataStore docStorage, String userId) throws
+            InvalidClaimDescriptionException_Exception, InvalidUserException_Exception {
         // reading user input
         String claimDescription = JOptionPane.showInputDialog("Insert claim description: ");
         int claimId = docStorage.createClaim(claimDescription, userId);
